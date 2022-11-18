@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:f="clr-namespace:PRBD_Framework;assembly=PRBD_Framework">
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="Saldo">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}, Converter={f:IsPositiveConverter}}">
+                <DataTrigger.Value>false</DataTrigger.Value>
+                <Setter Property="Foreground" Value="Red"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}, Converter={f:IsPositiveConverter}}">
+                <DataTrigger.Value>true</DataTrigger.Value>
+                <Setter Property="Foreground" Value="ForestGreen"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>
